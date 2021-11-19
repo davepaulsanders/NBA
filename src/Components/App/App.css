@@ -1,9 +1,14 @@
 .App {
   display: grid;
+  justify-self: center;
+  align-items: center;
   grid-template-columns: repeat(8, 1fr);
   grid-template-areas: ". . . header header . . .";
 }
 
 .title {
-grid-area: header;
+  font-size: 3rem;
+  padding: 1rem;
+  text-align: center;
+  grid-area: header;
 }
