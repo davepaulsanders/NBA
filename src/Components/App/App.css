@@ -1,0 +1,9 @@
+.App {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-areas: ". . . header header . . .";
+}
+
+.title {
+grid-area: header;
+}
