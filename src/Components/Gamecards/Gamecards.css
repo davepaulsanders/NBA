@@ -1,28 +1,35 @@
-.results {
-    color: white;
+
+/* Images */
+
+img {
+    height: 30px;
 }
 
+.homeimage {
+    grid-area: homelogo;
+}
+.awayimage {
+    grid-area: awaylogo;
+}
 .gamecard {
     box-sizing: border-box;
     border: 2px whitesmoke solid;
     display: grid;
-    margin: 1rem;
-    align-items:center;
-    justify-items: left;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "a b f"
-                        "d e f";
-    background-color: rgb(32,33,36);
-    min-width: 150px;
-    max-width: 350px;;
+    margin: 0.75rem;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:    "homelogo a b f"
+                            "awaylogo d e f";
+    background-color: rgb(50, 75, 151);
+    max-width: 300px;
+    /* This is currently controlling how wide they are */
 }
 
 p {
     color: white;
-    margin-left: 1.5rem;
     padding: 1rem;
-    
+    text-align: center;
 }
 
 .hometeam{
@@ -42,4 +49,6 @@ p {
 }
 .status{
     grid-area: f;
+    font-size: .75rem;
+    
 }
