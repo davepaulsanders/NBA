@@ -1,14 +1,26 @@
+body{ 
+  
+  background-image: linear-gradient(rgba(83, 65, 65, 0.3), rgba(112, 89, 89, 0.5)), url('./oleksii-s-O2kqxbix4Mw-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
 .App {
   display: grid;
   justify-self: center;
   align-items: center;
+  
   grid-template-columns: repeat(8, 1fr);
-  grid-template-areas: ". . . header header . . .";
+  grid-template-areas: "header header header header header header header header"
+                        "sb sb sb sb sb sb sb sb";
+                        
+                       
 }
-
 .title {
+  padding: 2rem;
   font-size: 3rem;
-  padding: 1rem;
   text-align: center;
   grid-area: header;
+  white-space: nowrap;
 }

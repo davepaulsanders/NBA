@@ -1,0 +1,9 @@
+.scoreboard-background {
+    grid-area: sb;
+    align-items: stretch;
+}
+.scoreboard-title{
+    color: black;
+    font-size: 2rem;;
+    text-align: center;
+}

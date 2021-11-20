@@ -1,0 +1,45 @@
+.results {
+    color: white;
+}
+
+.gamecard {
+    box-sizing: border-box;
+    border: 2px whitesmoke solid;
+    display: grid;
+    margin: 1rem;
+    align-items:center;
+    justify-items: left;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "a b f"
+                        "d e f";
+    background-color: rgb(32,33,36);
+    min-width: 150px;
+    max-width: 350px;;
+}
+
+p {
+    color: white;
+    margin-left: 1.5rem;
+    padding: 1rem;
+    
+}
+
+.hometeam{
+    grid-area: a;
+}
+
+.hometeamscore{
+    grid-area: b;
+}
+
+.awayteam{
+    grid-area: d;
+}
+
+.awayteamscore{
+    grid-area: e;
+}
+.status{
+    grid-area: f;
+}
