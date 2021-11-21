@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Scoreboard } from "../Scoreboard/Scoreboard";
-
+import { Ballislife } from "../../util/Ballislife";
 export class App extends React.Component {
   constructor(props) {
     super(props);
@@ -65,6 +65,11 @@ export class App extends React.Component {
         },
       ],
     };
+  }
+  search(query) {
+    Ballislife.search(query).then((searchResults) => {
+      this.setState({ searchResults: searchResults });
+    });
   }
   render() {
     return (
