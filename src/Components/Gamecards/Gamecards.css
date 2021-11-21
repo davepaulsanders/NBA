@@ -23,7 +23,7 @@ img {
                             "awaylogo d e f";
     background-color: rgb(50, 75, 151);
     max-width: 300px;
-    /* This is currently controlling how wide they are */
+    animation:  0.75s ease-in-out cardAnimation;
 }
 
 p {
@@ -52,3 +52,14 @@ p {
     font-size: .75rem;
     
 }
+
+@keyframes cardAnimation {
+    0% {
+      transform: translateY(-10%);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
