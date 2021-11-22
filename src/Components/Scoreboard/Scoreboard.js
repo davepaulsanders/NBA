@@ -8,7 +8,8 @@ export class Scoreboard extends React.Component {
       <div className="scoreboard-background">
         <h2 className="scoreboard-title">Games Today!</h2>
         <div className="games">
-          {/* Each game will be handed a prop that includes all the data from each individual game */}
+          {/* Each gamecard will be handed a prop that includes all the data from each */}
+          {/* individual game */}
           {this.props.scores.map((game) => {
             return <Gamecards game={game}></Gamecards>;
           })}
