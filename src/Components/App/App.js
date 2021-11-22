@@ -11,10 +11,8 @@ export class App extends React.Component {
   }
   async componentDidMount() {
     let gamesToday = await Ballislife.search();
-    // The data is  imported from Ballislife here and mapped to objects of each game.
-    // Two things I don't understand. Why the "(" before the objecst in map, and how is
-    // searchResults not as a key not require an extra drill down
-    // Also, should this be in Ballislife.js instead?
+    // The data is  imported from Ballislife here and mapped to each game.
+
     gamesToday = gamesToday.map((game) => ({
       hometeam: game.home_team.name,
       hometeamscore: game.home_team_score,
