@@ -30,6 +30,7 @@ p {
     color: white;
     padding: 1rem;
     text-align: center;
+    white-space: nowrap;
 }
 
 .hometeam{
