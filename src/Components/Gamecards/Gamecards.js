@@ -7,8 +7,10 @@ export class Gamecards extends React.Component {
     // Game keys and values are assigned to physical elements in the HTML
     // Specific images are assigned based on team
 
-    let hometeamimage = `/img/${this.props.game.hometeam}.png`;
-    let awayteamimage = `/img/${this.props.game.awayteam}.png`;
+    let hometeamimage =
+      process.env.PUBLIC_URL + `/img/${this.props.game.hometeam}.png`;
+    let awayteamimage =
+      process.env.PUBLIC_URL + `/img/${this.props.game.awayteam}.png`;
 
     return (
       <div className="gamecard">
