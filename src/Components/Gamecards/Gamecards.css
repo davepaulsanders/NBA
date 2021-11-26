@@ -22,7 +22,7 @@ img {
     grid-template-areas:    "homelogo a b f"
                             "awaylogo d e f";
     background-color: rgb(50, 75, 151);
-    max-width: 300px;
+    max-width: 350px;
     animation:  0.75s ease-in-out cardAnimation;
 }
 
