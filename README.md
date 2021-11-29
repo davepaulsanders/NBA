@@ -12,6 +12,7 @@ This was built as a React app using Javascript, HTML, and CSS. The API I used is
 
 I would like to add a few things to this in the future:
 
+- Change from class based to functional components
 - Load the components in order based on the start time of the game
 - Possibly use another API to provide additional data about the players in each game
 - Make sure the logos render nicely no matter the team name length (this is really only an issue with the Timberwolves)
