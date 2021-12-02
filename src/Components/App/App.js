@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Scoreboard } from "../Scoreboard/Scoreboard";
 import { Ballislife } from "../../util/Ballislife";
+
 export const App = () => {
-  //Constructor is removed and replaced with functional component with empty state and set state
   const [gamesToday, setGamesToday] = useState([]);
 
   useEffect(() => {
     async function getGames() {
       return await Ballislife.search();
-      // The data is  imported from Ballislife here and mapped to each game.
+      // The data is imported from Ballislife here and specific properties are moved and mapped to objects in array.
     }
 
     getGames().then((res) => {
@@ -22,13 +22,12 @@ export const App = () => {
       }));
       setGamesToday(res);
     });
-  }, []); // Something like this so it only reloads when those
-  // specific score change
+  }, [gamesToday.hometeamscore, gamesToday.awayteamscore, gamesToday.status]);
+  // Only reloads when scores or status change
 
   return (
     <div className="App">
       <h1 className="title">NBA SCORES</h1>
-      {/* This should pass down the new state that I created */}
       <Scoreboard scores={gamesToday} />
     </div>
   );

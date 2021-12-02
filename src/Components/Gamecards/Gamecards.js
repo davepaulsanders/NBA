@@ -6,6 +6,7 @@ export const Gamecards = ({ game }) => {
   // Game keys and values are assigned to physical elements in the HTML
   // Specific images are assigned based on team
 
+  // Public URL allows build to access public folder
   let hometeamimage = process.env.PUBLIC_URL + `/img/${game.hometeam}.png`;
   let awayteamimage = process.env.PUBLIC_URL + `/img/${game.awayteam}.png`;
 

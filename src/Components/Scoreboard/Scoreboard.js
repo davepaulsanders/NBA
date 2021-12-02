@@ -7,8 +7,7 @@ export const Scoreboard = ({ scores }) => {
     <div className="scoreboard-background">
       <h2 className="scoreboard-title">Games Today!</h2>
       <div className="games">
-        {/* Each gamecard will be handed a prop that includes all the data from each */}
-        {/* individual game */}
+        {/* Mapping each individual game to a card */}
         {scores.map((game) => {
           return <Gamecards game={game}></Gamecards>;
         })}
