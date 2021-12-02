@@ -8,21 +8,20 @@ export const App = () => {
 
   useEffect(() => {
     async function getGames() {
-      let searchGames = await Ballislife.search()(
-        //I think i have to call the getGames earlier maybe?
-        // The data is  imported from Ballislife here and mapped to each game.
+      let searchGames = await Ballislife.search();
+      //I think there needs to be a .then
+      // The data is  imported from Ballislife here and mapped to each game.
 
-        (searchGames = searchGames.map((game) => ({
-          hometeam: game.home_team.name,
-          hometeamscore: game.home_team_score,
-          awayteam: game.visitor_team.name,
-          awayteamscore: game.visitor_team_score,
-          status: game.status,
-        })))
-      );
+      //maybe I could update the state with this map?
+      searchGames.map((game) => ({
+        hometeam: game.home_team.name,
+        hometeamscore: game.home_team_score,
+        awayteam: game.visitor_team.name,
+        awayteamscore: game.visitor_team_score,
+        status: game.status,
+      }));
     }
-    gamesToday();
-    setGamesToday(searchGames);
+    getGames();
   }, []); // Something like this so it only reloads when those
   // specific score change
   return (
