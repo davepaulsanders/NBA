@@ -20,7 +20,7 @@ export const App = () => {
         awayteamscore: game.visitor_team_score,
         status: game.status,
       }));
-      console.log(res);
+      setGamesToday(res);
     });
   }, []); // Something like this so it only reloads when those
   // specific score change

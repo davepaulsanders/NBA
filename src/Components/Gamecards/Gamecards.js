@@ -2,34 +2,22 @@ import React from "react";
 import "./Gamecards.css";
 // Map through a folder of images and assign them alts
 
-export class Gamecards extends React.Component {
-  render() {
-    // Game keys and values are assigned to physical elements in the HTML
-    // Specific images are assigned based on team
+export const Gamecards = ({ game }) => {
+  // Game keys and values are assigned to physical elements in the HTML
+  // Specific images are assigned based on team
 
-    let hometeamimage =
-      process.env.PUBLIC_URL + `/img/${this.props.game.hometeam}.png`;
-    let awayteamimage =
-      process.env.PUBLIC_URL + `/img/${this.props.game.awayteam}.png`;
+  let hometeamimage = process.env.PUBLIC_URL + `/img/${game.hometeam}.png`;
+  let awayteamimage = process.env.PUBLIC_URL + `/img/${game.awayteam}.png`;
 
-    return (
-      <div className="gamecard">
-        <img
-          className="homeimage"
-          src={hometeamimage}
-          alt="home team logo"
-        ></img>
-        <p className="hometeam">{this.props.game.hometeam}</p>
-        <p className="hometeamscore">{this.props.game.hometeamscore}</p>
-        <img
-          className="awayimage"
-          src={awayteamimage}
-          alt="away team logo"
-        ></img>
-        <p className="awayteam">{this.props.game.awayteam}</p>
-        <p className="awayteamscore">{this.props.game.awayteamscore}</p>
-        <p className="status">{this.props.game.status}</p>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="gamecard">
+      <img className="homeimage" src={hometeamimage} alt="home team logo"></img>
+      <p className="hometeam">{game.hometeam}</p>
+      <p className="hometeamscore">{game.hometeamscore}</p>
+      <img className="awayimage" src={awayteamimage} alt="away team logo"></img>
+      <p className="awayteam">{game.awayteam}</p>
+      <p className="awayteamscore">{game.awayteamscore}</p>
+      <p className="status">{game.status}</p>
+    </div>
+  );
+};
