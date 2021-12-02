@@ -13,7 +13,7 @@ export const App = () => {
     }
 
     getGames().then((res) => {
-      res.map((game) => ({
+      res = res.map((game) => ({
         hometeam: game.home_team.name,
         hometeamscore: game.home_team_score,
         awayteam: game.visitor_team.name,
