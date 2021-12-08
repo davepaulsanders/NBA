@@ -19,6 +19,7 @@ export const App = () => {
         awayteam: game.visitor_team.name,
         awayteamscore: game.visitor_team_score,
         status: game.status,
+        time: game.time,
       }));
       setGamesToday(res);
     });
