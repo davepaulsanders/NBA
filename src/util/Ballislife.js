@@ -7,6 +7,7 @@ export const Ballislife = {
     let dateQuery = year + "-" + month + "-" + day;
     let urlQuery = "https://www.balldontlie.io/api/v1/games/?dates[]=";
     let gamesQuery = urlQuery + dateQuery;
+    console.log(dateQuery);
     try {
       const response = await fetch(gamesQuery);
       if (response.ok) {
@@ -19,3 +20,8 @@ export const Ballislife = {
     }
   },
 };
+
+//https://www.balldontlie.io/api/v1/stats/?dates[]=2022-02-01&player_ids[]=194
+
+//This endpoint will get you player stats for a specific game.  Maybe I could use gameID
+// To show which player has the highest points or something

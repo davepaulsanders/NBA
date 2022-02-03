@@ -11,7 +11,9 @@ export const App = () => {
       return await Ballislife.search();
       // The data is imported from Ballislife here and specific properties are moved and mapped to objects in array.
     }
-
+    const generateId = () => {
+      return;
+    };
     getGames().then((res) => {
       res = res.map((game) => ({
         hometeam: game.home_team.name,
@@ -19,13 +21,44 @@ export const App = () => {
         awayteam: game.visitor_team.name,
         awayteamscore: game.visitor_team_score,
         status: game.status,
-        time: game.time,
+        id: generateId(),
       }));
       setGamesToday(res);
     });
   }, [gamesToday.hometeamscore, gamesToday.awayteamscore, gamesToday.status]);
   // Only reloads when scores or status change
 
+  gamesToday.sort((a, b) => {
+    const properOrderArray = [
+      "Final",
+      "1st",
+      "2nd",
+      "3rd",
+      "4th",
+      "Halftime",
+      "1:00 PM ET",
+      "1:30 PM ET",
+      "2:30 PM ET",
+      "3:00 PM ET",
+      "3:30 PM ET",
+      "4:30 PM ET",
+      "5:00 PM ET",
+      "5:00 PM ET",
+      "6:00 PM ET",
+      "6:30 PM ET",
+      "7:00 PM ET",
+      "7:30 PM ET",
+      "8:00 PM ET",
+      "8:30 PM ET",
+      "9:00 PM ET",
+      "9:30 PM ET",
+      "10:00 PM ET",
+      "10:30 PM ET",
+    ];
+    return (
+      properOrderArray.indexOf(a.status) - properOrderArray.indexOf(b.status)
+    );
+  });
   return (
     <div className="App">
       <h1 className="title">NBA SCORES</h1>
