@@ -11,7 +11,9 @@ img {
 .awayimage {
     grid-area: awaylogo;
 }
+
 .gamecard {
+    position: relative;
     box-sizing: border-box;
     border: 2px whitesmoke solid;
     display: grid;
@@ -24,8 +26,37 @@ img {
     background-color: rgb(50, 75, 151);
     width: 350px;
     animation:  0.75s ease-in-out cardAnimation;
+    overflow: hidden;
+    height: 100px;
+}
+.gamecard-back {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:    "a title title b"
+                            "c d e f";
+    position:absolute;
+    width: 350px;
+    background: rgb(243, 150, 10);  
+    visibility: hidden; 
+    padding: 0;
+    box-sizing: border-box;
+}
+.gamecard:hover .gamecard-back {
+    visibility: visible;
+    animation:  0.25s ease-in-out cardBack;
 }
 
+.title {
+    grid-area: title;
+    font-size: 1rem;
+    
+}
+
+.hometeam-top-scorer {
+    grid-area: c;
+    font-size: 1rem;
+
+}
 p {
     color: white;
     padding: 1rem;
@@ -63,4 +94,15 @@ p {
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  @keyframes cardBack {
+      0% {
+          top: 100px;
+         
+      }
+      100% {
+        
+        top: 0px;
+      }
   }

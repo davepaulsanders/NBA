@@ -19,6 +19,10 @@ export const Gamecards = ({ game }) => {
       <p className="awayteam">{game.awayteam}</p>
       <p className="awayteamscore">{game.awayteamscore}</p>
       <p className="status">{game.status}</p>
+      <div className="gamecard-back">
+        <p className="title">Top Scorers</p>
+        <p className="hometeam-top-scorer">Embiid</p>
+      </div>
     </div>
   );
 };
