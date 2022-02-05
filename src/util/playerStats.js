@@ -11,6 +11,10 @@ export const playerStats = {
 
     const response = await fetch(gamesQuery);
     const { data } = await response.json();
-    return data;
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].id === game.id) {
+        return data[i];
+      }
+    }
   },
 };
