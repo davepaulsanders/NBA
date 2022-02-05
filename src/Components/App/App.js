@@ -11,9 +11,7 @@ export const App = () => {
       return await Ballislife.search();
       // The data is imported from Ballislife here and specific properties are moved and mapped to objects in array.
     }
-    const generateId = () => {
-      return;
-    };
+
     getGames().then((res) => {
       res = res.map((game) => ({
         hometeam: game.home_team.name,
@@ -21,7 +19,7 @@ export const App = () => {
         awayteam: game.visitor_team.name,
         awayteamscore: game.visitor_team_score,
         status: game.status,
-        id: generateId(),
+        id: game.id,
       }));
       setGamesToday(res);
     });

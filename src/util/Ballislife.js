@@ -1,5 +1,5 @@
 export const Ballislife = {
-  async search(query) {
+  async search() {
     let today = new Date();
     let day = today.getDate();
     let month = today.getMonth() + 1;
@@ -7,7 +7,7 @@ export const Ballislife = {
     let dateQuery = year + "-" + month + "-" + day;
     let urlQuery = "https://www.balldontlie.io/api/v1/games/?dates[]=";
     let gamesQuery = urlQuery + dateQuery;
-    console.log(dateQuery);
+
     try {
       const response = await fetch(gamesQuery);
       if (response.ok) {

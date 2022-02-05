@@ -32,26 +32,26 @@ img {
 .gamecard-back {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 50px;
     grid-template-areas:    "a title title b"
                             "c d e f";
     position:absolute;
     width: 350px;
-    background: rgb(243, 150, 10);  
+    background: rgb(59, 57, 53);  
     visibility: hidden; 
-    padding: 0;
-    box-sizing: border-box;
+    align-items: center;
+ 
+    
 }
 .gamecard:hover .gamecard-back {
     visibility: visible;
     animation:  0.25s ease-in-out cardBack;
 }
-
-.title {
+.title-for-scores {
     grid-area: title;
     font-size: 1rem;
-    
+    color: white;
 }
-
 .hometeam-top-scorer {
     grid-area: c;
     font-size: 1rem;
