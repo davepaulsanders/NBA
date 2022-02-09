@@ -11,7 +11,9 @@ export const Ballislife = {
     try {
       const response = await fetch(gamesQuery);
       if (response.ok) {
+        console.log(response);
         const { data } = await response.json();
+
         return data;
       }
       throw new Error("Request failed!");

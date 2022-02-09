@@ -32,9 +32,23 @@ img {
 .gamecard-back {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 50px;
-    grid-template-areas:    "a title title b"
+    grid-template-rows: 50px 50px;
+    grid-template-areas:    " title title title title"
                             "c d e f";
+    position:absolute;
+    width: 350px;
+    background: rgb(59, 57, 53);  
+    visibility: hidden; 
+    align-items: center;
+ 
+    
+}
+.gamecard-back-empty {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px;
+    grid-template-areas:    "a"
+                            "b";
     position:absolute;
     width: 350px;
     background: rgb(59, 57, 53);  
@@ -47,15 +61,38 @@ img {
     visibility: visible;
     animation:  0.25s ease-in-out cardBack;
 }
+
+.gamecard:hover .gamecard-back-empty {
+    visibility: visible;
+    animation:  0.25s ease-in-out cardBack;
+}
+.no-stats {
+    grid-area: a;
+}
 .title-for-scores {
     grid-area: title;
     font-size: 1rem;
     color: white;
 }
-.hometeam-top-scorer {
+.top-scorer-1 {
     grid-area: c;
     font-size: 1rem;
 
+}
+.top-scorer-2 {
+    grid-area: e;
+    font-size: 1rem;
+
+}
+
+.score-1 {
+    grid-area: d;
+    font-size: 1rem;
+    
+}
+.score-2{
+    grid-area: f;
+    font-size: 1rem;
 }
 p {
     color: white;

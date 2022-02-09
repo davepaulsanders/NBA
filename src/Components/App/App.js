@@ -20,6 +20,7 @@ export const App = () => {
         awayteamscore: game.visitor_team_score,
         status: game.status,
         id: game.id,
+        time: game.time,
       }));
       setGamesToday(res);
     });
@@ -29,11 +30,11 @@ export const App = () => {
   gamesToday.sort((a, b) => {
     const properOrderArray = [
       "Final",
-      "1st",
-      "2nd",
-      "3rd",
       "4th",
+      "3rd",
       "Halftime",
+      "2nd",
+      "1st",
       "1:00 PM ET",
       "1:30 PM ET",
       "2:30 PM ET",

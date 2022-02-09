@@ -6,15 +6,18 @@ export const playerStats = {
     let year = today.getFullYear();
     let dateQuery = year + "-" + month + "-" + day;
     let gameId = `&game_ids[]=${game.id}`;
-    let urlQuery = "https://www.balldontlie.io/api/v1/games/?dates[]=";
+    let urlQuery = "https://www.balldontlie.io/api/v1/stats/?dates[]=";
     let gamesQuery = urlQuery + dateQuery + gameId;
 
-    const response = await fetch(gamesQuery);
-    const { data } = await response.json();
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].id === game.id) {
-        return data[i];
+    try {
+      const response = await fetch(gamesQuery);
+      if (response.ok) {
+        const { data } = await response.json();
+        return data;
       }
+      throw new Error("Request failed!");
+    } catch (err) {
+      console.log(err);
     }
   },
 };
