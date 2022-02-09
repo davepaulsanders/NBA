@@ -15,3 +15,9 @@ body{
   white-space: nowrap;
   color: white;
 }
+
+@media only screen and (max-width: 485px) {
+  .title {
+    font-size: 2rem;
+  }
+}
