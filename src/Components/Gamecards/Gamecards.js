@@ -19,11 +19,19 @@ export const Gamecards = ({ game }) => {
   let hometeamimage = process.env.PUBLIC_URL + `/img/${game.hometeam}.png`;
   let awayteamimage = process.env.PUBLIC_URL + `/img/${game.awayteam}.png`;
 
-  //sort stats by highest points
+  //sort stats for each game by highest points and top two results are highest from each team
   if (gameStats[0]) {
     gameStats.sort((a, b) => {
       return b.pts - a.pts;
     });
+    const homeTeamTopScore = gameStats.find(
+      (element) => element.team.name === game.hometeam
+    );
+    const awayTeamTopScore = gameStats.find(
+      (element) => element.team.name === game.awayteam
+    );
+    gameStats.unshift(awayTeamTopScore);
+    gameStats.unshift(homeTeamTopScore);
   }
 
   if (gameStats[0]) {

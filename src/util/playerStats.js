@@ -7,8 +7,9 @@ export const playerStats = {
     let dateQuery = year + "-" + month + "-" + day;
     let gameId = `&game_ids[]=${game.id}`;
     let urlQuery = "https://www.balldontlie.io/api/v1/stats/?dates[]=";
-    let gamesQuery = urlQuery + dateQuery + gameId;
-
+    //let gamesQuery = urlQuery + dateQuery + gameId;
+    let gamesQuery =
+      "https://www.balldontlie.io/api/v1/stats/?dates[]=2022-02-08" + gameId;
     try {
       const response = await fetch(gamesQuery);
       if (response.ok) {
