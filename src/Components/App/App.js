@@ -30,11 +30,11 @@ export const App = () => {
   gamesToday.sort((a, b) => {
     const properOrderArray = [
       "Final",
-      "4th",
-      "3rd",
+      "1st Qtr",
+      "2nd Qtr",
       "Halftime",
-      "2nd",
-      "1st",
+      "3rd Qtr",
+      "4th Qtr",
       "1:00 PM ET",
       "1:30 PM ET",
       "2:30 PM ET",
