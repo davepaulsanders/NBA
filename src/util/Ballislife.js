@@ -6,9 +6,8 @@ export const Ballislife = {
     let year = today.getFullYear();
     let dateQuery = year + "-" + month + "-" + day;
     let urlQuery = "https://www.balldontlie.io/api/v1/games/?dates[]=";
-    // let gamesQuery = urlQuery + dateQuery;
-    let gamesQuery =
-      "https://www.balldontlie.io/api/v1/games/?dates[]=2022-02-08";
+    let gamesQuery = urlQuery + dateQuery;
+
     try {
       const response = await fetch(gamesQuery);
       if (response.ok) {
