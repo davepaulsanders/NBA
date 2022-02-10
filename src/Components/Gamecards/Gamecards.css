@@ -13,9 +13,10 @@ img {
 }
 
 .gamecard {
+    border-radius: 7px;
     position: relative;
     box-sizing: border-box;
-    border: 2px whitesmoke solid;
+    border: 2px #FFAC05 solid;
     display: grid;
     margin: 0.75rem;
     justify-items: center;
@@ -23,7 +24,7 @@ img {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:    "homelogo a b f"
                             "awaylogo d e f";
-    background-color: rgb(50, 75, 151);
+    background-color: #8205FF;
     width: 350px;
     animation:  0.75s ease-in-out cardAnimation;
     overflow: hidden;
@@ -103,20 +104,25 @@ p {
 
 .hometeam{
     grid-area: a;
+    
 }
 
 .hometeamscore{
     grid-area: b;
+    
 }
 
 .awayteam{
     grid-area: d;
+    
 }
 
 .awayteamscore{
     grid-area: e;
+    
 }
 .status{
+    
     grid-area: f;
     font-size: .75rem;
     
