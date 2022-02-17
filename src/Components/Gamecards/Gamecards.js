@@ -4,9 +4,7 @@ import { playerStats } from "../../util/playerStats";
 // Map through a folder of images and assign them alts
 
 export const Gamecards = ({ game }) => {
-  // Game keys and values are assigned to physical elements in the HTML
-  // Specific images are assigned based on team
-  // Public URL allows build to access public folder
+  // State to hold stats on all players in game
   const [gameStats, setGameStats] = useState([]);
 
   useEffect(() => {
@@ -16,14 +14,17 @@ export const Gamecards = ({ game }) => {
     getStats().then((res) => setGameStats(res));
   }, [game]);
 
+  // Specific images are assigned based on team
+  // Public URL allows build to access public folder
   let hometeamimage = process.env.PUBLIC_URL + `/img/${game.hometeam}.png`;
   let awayteamimage = process.env.PUBLIC_URL + `/img/${game.awayteam}.png`;
 
-  //sort stats for each game by highest points and top two results are highest from each team
   if (gameStats[0]) {
+    //If stats exist, sorts players for each game by highest points
     gameStats.sort((a, b) => {
       return b.pts - a.pts;
     });
+    //Get the player with the highest points from both teams and put them at the top of the array
     const homeTeamTopScore = gameStats.find(
       (element) => element.team.name === game.hometeam
     );
@@ -35,6 +36,7 @@ export const Gamecards = ({ game }) => {
   }
 
   if (gameStats[0]) {
+    //if there are stats available
     return (
       <div className="gamecard">
         <img

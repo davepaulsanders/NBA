@@ -9,10 +9,10 @@ export const App = () => {
   useEffect(() => {
     async function getGames() {
       return await Ballislife.search();
-      // The data is imported from Ballislife here and specific properties are moved and mapped to objects in array.
     }
 
     getGames().then((res) => {
+      // Mapping each game to an object stored in gamesToday
       res = res.map((game) => ({
         hometeam: game.home_team.name,
         hometeamscore: game.home_team_score,
@@ -25,9 +25,9 @@ export const App = () => {
       setGamesToday(res);
     });
   }, [gamesToday.hometeamscore, gamesToday.awayteamscore, gamesToday.status]);
-  // Only reloads when scores or status change
 
   gamesToday.sort((a, b) => {
+    // Sorting games by status
     const properOrderArray = [
       "Final",
       "1st Qtr",
@@ -60,7 +60,9 @@ export const App = () => {
   });
   return (
     <div className="App">
-      <h1 className="title">NBA SCORES</h1>
+      <h1 className="title" href="https://nba-games.netlify.app/">
+        NBA SCORES
+      </h1>
       <Scoreboard scores={gamesToday} />
     </div>
   );

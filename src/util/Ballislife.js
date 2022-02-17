@@ -1,4 +1,5 @@
 export const Ballislife = {
+  // API call to get an array of all games happening on a current day
   async search() {
     let today = new Date();
     let day = today.getDate();

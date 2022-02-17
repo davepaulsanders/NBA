@@ -1,4 +1,6 @@
 export const playerStats = {
+  // API call to get stats for all players in a specific game
+
   async topScores(game) {
     let today = new Date();
     let day = today.getDate();
