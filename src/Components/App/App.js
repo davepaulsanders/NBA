@@ -6,17 +6,20 @@ import { Ballislife } from "../../util/Ballislife";
 export const App = () => {
   const [gamesToday, setGamesToday] = useState([]);
   useEffect(() => {
-    const getGames = async () => {
-      try {
-        const response = await Ballislife.search();
-        return response;
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getGames().then((res) => setGamesToday(res));
+    setInterval(
+      getGames().then((res) => setGamesToday(res)),
+      600000
+    );
   }, []);
 
+  const getGames = async () => {
+    try {
+      const response = await Ballislife.search();
+      return response;
+    } catch (err) {
+      console.log(err);
+    }
+  };
   if (gamesToday) {
     gamesToday.sort((a, b) => {
       // Sorting games by status
@@ -52,9 +55,6 @@ export const App = () => {
     });
   }
 
-  if (gamesToday) {
-    gamesToday.map();
-  }
   return (
     <div className="App">
       <h1 className="title" href="https://nba-games.netlify.app/">
