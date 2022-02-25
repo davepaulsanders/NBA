@@ -2,26 +2,23 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Scoreboard } from "../Scoreboard/Scoreboard";
 import { Ballislife } from "../../util/Ballislife";
+import { cloneElement } from "react/cjs/react.production.min";
 
 export const App = () => {
   const [gamesToday, setGamesToday] = useState([]);
-  useEffect(() => {
-    setInterval(
-      getGames().then((res) => setGamesToday(res)),
-      600000
-    );
-  }, []);
+  useEffect(() => getGames().then((res) => setGamesToday(res)), []);
 
   const getGames = async () => {
     try {
+      console.log("updated!");
       const response = await Ballislife.search();
       return response;
     } catch (err) {
       console.log(err);
     }
   };
-  if (gamesToday) {
-    gamesToday.sort((a, b) => {
+  const sort = (array) => {
+    array.sort((a, b) => {
       // Sorting games by status
       const properOrderArray = [
         "Final",
@@ -53,8 +50,17 @@ export const App = () => {
         properOrderArray.indexOf(a.status) - properOrderArray.indexOf(b.status)
       );
     });
-  }
+  };
 
+  const config = (arr) => {
+    arr.map((game) => {
+      return (game = {
+        hometeam: game.home_team.name,
+      });
+    });
+  };
+  sort(gamesToday);
+  config(gamesToday);
   return (
     <div className="App">
       <h1 className="title" href="https://nba-games.netlify.app/">
