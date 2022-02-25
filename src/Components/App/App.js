@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Scoreboard } from "../Scoreboard/Scoreboard";
 import { Ballislife } from "../../util/Ballislife";
-import { cloneElement } from "react/cjs/react.production.min";
 
 export const App = () => {
   const [gamesToday, setGamesToday] = useState([]);
@@ -53,10 +52,8 @@ export const App = () => {
   };
 
   const config = (arr) => {
-    arr.map((game) => {
-      return (game = {
-        hometeam: game.home_team.name,
-      });
+    arr.map((game) => ({
+      
     });
   };
   sort(gamesToday);
