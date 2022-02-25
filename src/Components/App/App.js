@@ -6,20 +6,18 @@ import { Ballislife } from "../../util/Ballislife";
 export const App = () => {
   const [gamesToday, setGamesToday] = useState([]);
   useEffect(() => {
-    getGames();
+    const getGames = async () => {
+      try {
+        const response = await Ballislife.search();
+        return response;
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getGames().then((res) => setGamesToday(res));
   }, []);
 
-  const getGames = async () => {
-    try {
-      const response = await Ballislife.search();
-      const jsonResponse = await response.json();
-      return jsonResponse;
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  if (gamesToday[0]) {
+  if (gamesToday) {
     gamesToday.sort((a, b) => {
       // Sorting games by status
       const properOrderArray = [
@@ -54,8 +52,8 @@ export const App = () => {
     });
   }
 
-  if (gamesToday[0]) {
-    gamesToday.map((game) => {});
+  if (gamesToday) {
+    gamesToday.map();
   }
   return (
     <div className="App">
