@@ -8,14 +8,17 @@ export const App = () => {
   useEffect(() => {
     getGames();
   }, []);
+
   const getGames = async () => {
     try {
       const response = await Ballislife.search();
-      setGamesToday(response);
+      const jsonResponse = await response.json();
+      return jsonResponse;
     } catch (err) {
       console.log(err);
     }
   };
+
   if (gamesToday[0]) {
     gamesToday.sort((a, b) => {
       // Sorting games by status
