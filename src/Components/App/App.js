@@ -3,18 +3,35 @@ import "./App.css";
 import { Scoreboard } from "../Scoreboard/Scoreboard";
 import { Ballislife } from "../../util/Ballislife";
 
+//this function calls sort and reconfigures the games object before adding it to state
+
 export const App = () => {
   const [gamesToday, setGamesToday] = useState([]);
   useEffect(() => {
-    const cleanUpGames = async () => {
+    getGames()
+      .then((res) => {
+        sort(res);
+        return res;
+      })
+      .then((res) => {
+        const games = config(res);
+        return games;
+      })
+      .then((games) => {
+        setGamesToday(games);
+      });
+
+    const updateGames = setInterval(async () => {
       let games = await getGames();
+      console.log("updating");
       sort(games);
       const newGames = config(games);
       setGamesToday(newGames);
-    };
-    cleanUpGames();
+    }, 10000);
   }, []);
+
   const getGames = async () => {
+    //making request for games of the day
     try {
       const response = await Ballislife.search();
       return response;
@@ -58,6 +75,7 @@ export const App = () => {
   };
 
   const config = (arr) => {
+    // reconfiguring games object for simpler reading
     const mapToSimplify = arr.map((game) => ({
       hometeam: game.home_team.name,
       hometeamscore: game.home_team_score,
@@ -73,7 +91,7 @@ export const App = () => {
   return (
     <div className="App">
       <h1 className="title" href="https://nba-games.netlify.app/">
-        NBA SCORES
+        NBA Scores
       </h1>
       <Scoreboard scores={gamesToday} />
     </div>
