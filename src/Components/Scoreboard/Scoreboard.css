@@ -5,17 +5,17 @@
     align-items: center;
 }
 
-@media only screen and (min-width: 1300px) {
+@media only screen and (min-width: 1510px) {
     .games {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
-@media only screen and (max-width: 926px) {
+@media only screen and (max-width: 1130px) {
     .games {
         grid-template-columns: 1fr 1fr;
     }
 }
-@media only screen and (max-width: 624px) {
+@media only screen and (max-width: 768px) {
     .games {
         grid-template-columns: 1fr;
     }

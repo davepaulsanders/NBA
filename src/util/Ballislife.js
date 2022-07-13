@@ -1,14 +1,18 @@
 export const Ballislife = {
   // API call to get an array of all games happening on a current day
-  async search() {
-    let today = new Date();
-    let day = today.getDate();
-    let month = today.getMonth() + 1;
-    let year = today.getFullYear();
-    let dateQuery = year + "-" + month + "-" + day;
+  async search(date) {
+    let dateQuery, today, day, month, year;
+    if (date) {
+      dateQuery = date;
+    } else {
+      today = new Date();
+      day = today.getDate();
+      month = today.getMonth() + 1;
+      year = today.getFullYear();
+      dateQuery = year + "-" + month + "-" + day;
+    }
     let urlQuery = "https://www.balldontlie.io/api/v1/games/?dates[]=";
     let gamesQuery = urlQuery + dateQuery;
-
     try {
       const response = await fetch(gamesQuery);
       if (response.ok) {
