@@ -8,6 +8,7 @@ import { Ballislife } from "../../util/Ballislife";
 export const App = () => {
   const [gamesToday, setGamesToday] = useState([]);
   useEffect(() => {
+    // initial call for games before setting interval
     getGames()
       .then((res) => {
         sort(res);
@@ -20,25 +21,18 @@ export const App = () => {
       .then((games) => {
         setGamesToday(games);
       });
-
-    const updateGames = setInterval(async () => {
-      let games = await getGames();
-      console.log("updating");
-      sort(games);
-      const newGames = config(games);
-      setGamesToday(newGames);
-    }, 10000);
   }, []);
 
-  const getGames = async () => {
+  const getGames = async (date) => {
     //making request for games of the day
     try {
-      const response = await Ballislife.search();
+      const response = await Ballislife.search(date);
       return response;
     } catch (err) {
       console.log(err);
     }
   };
+
   const sort = (array) => {
     array.sort((a, b) => {
       // Sorting games by status
@@ -73,7 +67,6 @@ export const App = () => {
       );
     });
   };
-
   const config = (arr) => {
     // reconfiguring games object for simpler reading
     const mapToSimplify = arr.map((game) => ({
@@ -87,13 +80,28 @@ export const App = () => {
     }));
     return mapToSimplify;
   };
-
+  const handleClick = async (e) => {
+    e.preventDefault();
+    const games = await getGames("2022-04-10");
+    const final = config(games);
+    final.forEach((game) => (game.date = "2022-04-10"));
+    setGamesToday(final);
+  };
   return (
     <div className="App">
       <h1 className="title" href="https://nba-games.netlify.app/">
         NBA Scores
       </h1>
       <Scoreboard scores={gamesToday} />
+      {gamesToday.length === 0 ? (
+        <>
+          <p>No games today?</p>
+          <p>Click here to see a sample of games in the past!</p>
+          <button onClick={handleClick} className="past-games-button">
+            Past games
+          </button>
+        </>
+      ) : null}
     </div>
   );
 };

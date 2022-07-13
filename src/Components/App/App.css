@@ -1,8 +1,10 @@
 body{ 
   background-color: rgb(30,30,30);
-  
 }
-
+.App {
+  display: flex;
+  flex-direction: column;
+}
 @font-face {
   font-family: Sablon;
   src: url("../../fonts/sablon-up.regular.otf") format("opentype");
@@ -17,6 +19,10 @@ body{
   padding: 2rem;
   white-space: nowrap;
   color: #FF05AC;
+}
+
+.past-games-button {
+  margin: 0 auto;
 }
 
 @media only screen and (max-width: 485px) {

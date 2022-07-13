@@ -6,7 +6,7 @@ import { playerStats } from "../../util/playerStats";
 export const Gamecards = ({ game }) => {
   // State to hold stats on all players in game
   const [gameStats, setGameStats] = useState([]);
-
+  
   useEffect(() => {
     async function getStats() {
       return await playerStats.topScores(game);
