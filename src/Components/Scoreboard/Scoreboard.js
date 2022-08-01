@@ -14,13 +14,18 @@ export const Scoreboard = ({ scores }) => {
       <div className="d-flex justify-content-around align-items-center mb-4">
         <h2 className="scoreboard-title">{today}</h2>
         {scores.length > 1 ? (
-          <button className="standings-button">Standings</button>
+          <button
+            onClick={() => window.alert("Coming soon!")}
+            className="standings-button"
+          >
+            Standings
+          </button>
         ) : null}
       </div>
       <div className="games">
-        {scores.map((game) => {
+        {scores.map((game, i) => {
           // Mapping each individual game to a card
-          return <Gamecards game={game}></Gamecards>;
+          return <Gamecards game={game} key={i}></Gamecards>;
         })}
       </div>
     </div>

@@ -42,6 +42,7 @@ body{
   border: 2px solid #8205ff;
   cursor: pointer;
   width: 90%;
+  max-width: 20rem;
   animation: float 1s ease-in-out infinite;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
@@ -50,7 +51,10 @@ body{
   color:white;
   
 }
-
+.arrows-container {
+  max-width: 20rem;
+  width: 20rem;
+}
 .up-arrow {
   transform: rotate(-90deg);
   width: 1rem;

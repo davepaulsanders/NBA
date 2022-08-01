@@ -96,12 +96,12 @@ export const App = () => {
       </h1>
       <Scoreboard scores={gamesToday} />
       {gamesToday.length === 0 ? (
-        <>
+        <div className="d-flex justify-content-center align-items-center flex-column">
           <p className="no-games m-0 no-games-today">No games today?</p>
           <button onClick={handleClick} className="past-games-button">
             Past games
           </button>
-          <div className="d-flex justify-content-around mt-1">
+          <div className="arrows-container d-flex justify-content-around mt-1">
             <img className="up-arrow" src={upArrow} alt="arrow"></img>
             <img className="up-arrow" src={upArrow} alt="arrow"></img>
             <img className="up-arrow" src={upArrow} alt="arrow"></img>
@@ -112,7 +112,7 @@ export const App = () => {
           <p className="no-games m-0">
             Click to see what this site looks like during the season!
           </p>
-        </>
+        </div>
       ) : null}
     </div>
   );
