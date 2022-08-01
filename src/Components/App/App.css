@@ -1,6 +1,10 @@
 body{ 
   background-color: #edf2f4!important;
 }
+.banner {
+  background-color: #8205FF;
+  margin-bottom: 2rem;
+}
 .App {
   display: flex;
   flex-direction: column;
@@ -12,13 +16,12 @@ body{
 
                     
 .title {
-  margin-top: 4rem;
-  margin-bottom: 2rem!important;
+  margin: 0.5rem 0;
   font-weight: 700;
   font-size: 4.5rem;
   text-align: center;
   white-space: nowrap;
-  color: #8205FF;
+  color: white;
   cursor: pointer;
 }
 .no-games {
@@ -62,7 +65,7 @@ body{
 }
 @media only screen and (max-width: 485px) {
   .title {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 }
 
