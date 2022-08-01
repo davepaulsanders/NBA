@@ -91,9 +91,11 @@ export const App = () => {
   };
   return (
     <div className="App">
-      <h1 className="title" href="https://nba-games.netlify.app/">
+      <a href="https://nba-games.netlify.app/">
+      <h1 className="title">
         NBA Scores
       </h1>
+      </a>
       <Scoreboard scores={gamesToday} />
       {gamesToday.length === 0 ? (
         <div className="d-flex justify-content-center align-items-center flex-column">
