@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { Scoreboard } from "../Scoreboard/Scoreboard";
 import { Ballislife } from "../../util/Ballislife";
-
+import upArrow from "../../assets/arrow.png";
 //this function calls sort and reconfigures the games object before adding it to state
 
 export const App = () => {
@@ -95,11 +95,21 @@ export const App = () => {
       <Scoreboard scores={gamesToday} />
       {gamesToday.length === 0 ? (
         <>
-          <p>No games today?</p>
-          <p>Click here to see a sample of games in the past!</p>
+          <p className="no-games m-0 no-games-today">No games today?</p>
           <button onClick={handleClick} className="past-games-button">
             Past games
           </button>
+          <div className="d-flex justify-content-around mt-1">
+            <img className="up-arrow" src={upArrow} alt="arrow"></img>
+            <img className="up-arrow" src={upArrow} alt="arrow"></img>
+            <img className="up-arrow" src={upArrow} alt="arrow"></img>
+            <img className="up-arrow" src={upArrow} alt="arrow"></img>
+            <img className="up-arrow" src={upArrow} alt="arrow"></img>
+            <img className="up-arrow" src={upArrow} alt="arrow"></img>
+          </div>
+          <p className="no-games m-0">
+            Click to see what this site looks like during the season!
+          </p>
         </>
       ) : null}
     </div>

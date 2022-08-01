@@ -22,9 +22,12 @@
 }
 
 .scoreboard-title{
-    color: #FFAC05;
+    color: #8205FF;
     font-size: 1.5rem;
     text-align: center;
-    margin-bottom: 2rem;
     position: relative;
+}
+
+.margin {
+    margin-bottom: 2rem;
 }

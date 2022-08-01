@@ -1,5 +1,5 @@
 body{ 
-  background-color: rgb(30,30,30);
+  background-color: #edf2f4!important;
 }
 .App {
   display: flex;
@@ -12,21 +12,64 @@ body{
 
                     
 .title {
-  margin-top: 2rem;;
-  font-family: Sablon;
-  font-size: 5rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem!important;
+  font-weight: 700;
+  font-size: 4.5rem;
   text-align: center;
-  padding: 2rem;
   white-space: nowrap;
-  color: #FF05AC;
+  color: #8205FF;
+  cursor: pointer;
+}
+.no-games {
+  color: #8205FF;
+  font-size: 1.5rem;
+  white-space: normal;
+  letter-spacing: -1px;
+}
+.no-games-today{
+ font-weight: 700;
+ font-size: 2rem;
 }
 
 .past-games-button {
-  margin: 0 auto;
+  margin: 1rem auto;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #8205ff;
+  background-color: transparent;
+  border: 2px solid #8205ff;
+  cursor: pointer;
+  width: 90%;
+  animation: float 1s ease-in-out infinite;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+.past-games-button:hover {
+  background-color: #8205FF;
+  color:white;
+  
 }
 
+.up-arrow {
+  transform: rotate(-90deg);
+  width: 1rem;
+  height: 1rem;
+}
 @media only screen and (max-width: 485px) {
   .title {
     font-size: 4rem;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-2px);
   }
 }
