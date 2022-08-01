@@ -3,9 +3,11 @@ import "./App.css";
 import { Scoreboard } from "../Scoreboard/Scoreboard";
 import { Ballislife } from "../../util/Ballislife";
 import upArrow from "../../assets/arrow.png";
+
 //this function calls sort and reconfigures the games object before adding it to state
 
 export const App = () => {
+
   const [gamesToday, setGamesToday] = useState([]);
   useEffect(() => {
     // initial call for games before setting interval
