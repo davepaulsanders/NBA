@@ -105,7 +105,7 @@ export const App = () => {
       <Scoreboard scores={gamesToday} />
       {noGames === undefined && (
         <div className="w-100 d-flex items-center justify-content-center">
-          <img className="loading" src={loading} />
+          <img className="loading" alt="loading" src={loading} />
         </div>
       )}
       {noGames && (
