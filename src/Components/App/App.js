@@ -3,11 +3,12 @@ import "./App.css";
 import { Scoreboard } from "../Scoreboard/Scoreboard";
 import { Ballislife } from "../../util/Ballislife";
 import upArrow from "../../assets/arrow.png";
+import loading from "../../assets/loading.gif";
 
 //this function calls sort and reconfigures the games object before adding it to state
 
 export const App = () => {
-
+  const [noGames, setNoGames] = useState();
   const [gamesToday, setGamesToday] = useState([]);
   useEffect(() => {
     // initial call for games before setting interval
@@ -22,6 +23,11 @@ export const App = () => {
       })
       .then((games) => {
         setGamesToday(games);
+        if (games.length === 0) {
+          setNoGames(true);
+        } else {
+          setNoGames(false);
+        }
       });
   }, []);
 
@@ -92,14 +98,17 @@ export const App = () => {
   return (
     <div className="App">
       <div className="banner">
-      <a href="https://nba-games.netlify.app/">
-      <h1 className="title">
-        NBA Scores
-      </h1>
-      </a>
+        <a href="https://nba-games.netlify.app/">
+          <h1 className="title">NBA Scores</h1>
+        </a>
       </div>
       <Scoreboard scores={gamesToday} />
-      {gamesToday.length === 0 ? (
+      {noGames === undefined && (
+        <div className="w-100 d-flex items-center justify-content-center">
+          <img className="loading" src={loading} />
+        </div>
+      )}
+      {noGames && (
         <div className="d-flex justify-content-center align-items-center flex-column">
           <p className="no-games m-0 no-games-today">No games today?</p>
           <button onClick={handleClick} className="past-games-button">
@@ -117,7 +126,7 @@ export const App = () => {
             Click to see what this site looks like during the season!
           </p>
         </div>
-      ) : null}
+      )}
     </div>
   );
 };
