@@ -1,15 +1,12 @@
+import moment from "moment";
 export const Ballislife = {
   // API call to get an array of all games happening on a current day
   async search(date) {
-    let dateQuery, today, day, month, year;
+    let dateQuery
     if (date) {
       dateQuery = date;
     } else {
-      today = new Date();
-      day = today.getDate();
-      month = today.getMonth() + 1;
-      year = today.getFullYear();
-      dateQuery = year + "-" + month + "-" + day;
+      dateQuery = moment().format("YYYY-MM-DD")
     }
     let urlQuery = "https://www.balldontlie.io/api/v1/games/?dates[]=";
     let gamesQuery = urlQuery + dateQuery;
