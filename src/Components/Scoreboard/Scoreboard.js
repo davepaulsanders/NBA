@@ -4,7 +4,6 @@ import { Gamecards } from "../Gamecards/Gamecards";
 
 export const Scoreboard = ({ scores }) => {
   //Trimming full status
-  scores.map((score) => (score.status = score.status.substring(0, 8).trim()));
   let today = new Date();
   today = today.toDateString();
   today = today.slice(0, -4);
